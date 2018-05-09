@@ -16,6 +16,10 @@ app.use(bodyParser.json());
 app.use(router);
 app.use(express.static('public'));
 
+app.get('/', function(req, res){
+	res.redirect('/api/machines')
+})
+
 app.set('port', process.env.PORT || 3000)
 
   app.listen(app.get('port'), () => {
