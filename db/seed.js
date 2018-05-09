@@ -26,12 +26,12 @@ models.Machine.remove({}, function(err, res) {
     thumbnail_image_url: 'https://ichef.bbci.co.uk/news/1024/cpsprodpb/693C/production/_95804962_p0517py6.jpg',
     year: 1977,
     manufacturer: 'Bally'
-  }], function(err, posts) {
+  }], function(err, machines) {
     if (err) {
       console.log('Error creating Machines', err);
       return;
     }
-    console.log('Created', posts.length, 'posts');
+    console.log('Created', machines.length, 'machines');
     return;
   });
 });
