@@ -6,14 +6,14 @@ $( document ).ready(function() {
 			console.log(data)
 			
 			//Populator
-			$.ajax({
-				url : '/api/machines',
-				method : 'POST',
-				data : data,
-				success : function(response){
-				console.log(response)
-				}
-			})
+			// $.ajax({
+			// 	url : '/api/machines',
+			// 	method : 'POST',
+			// 	data : data,
+			// 	success : function(response){
+			// 	console.log(response)
+			// 	}
+			// })
 
 		}
 	})
