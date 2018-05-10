@@ -2,7 +2,7 @@ var models = require('../models');
 var Machine = models.Machine;
 
 function index(req, res) {
-  Machine.find({}, function(err, machines) {
+  Machine.find({}, function(err, machines){
     if (err) res.send(err);
     else res.json(machines);
   });
@@ -12,7 +12,7 @@ function show(req, res) {
   Machine.findById(req.params.machine_id, function(err, machine){
     if (err) res.send(err);
     else res.json(machine);
-  });  
+  });
 }
 
 function create(req, res) {

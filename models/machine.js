@@ -3,9 +3,8 @@ var mongoose = require('mongoose'),
   
 
 var MachineSchema = new Schema({
-  title: String,
-  description: String,
-  thumbnail_image_url: String,
+  name: String,
+  ipdb_link: String,
   year: Number,
   manufacturer: String
 });

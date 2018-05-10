@@ -12,12 +12,14 @@ app.use(function(req, res, next) {
 });
 
 var bodyParser = require('body-parser');
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(router);
 app.use(express.static('public'));
 
 app.get('/', function(req, res){
-	res.redirect('/api/machines')
+	res.send('index')
 })
 
 app.set('port', process.env.PORT || 3000)
