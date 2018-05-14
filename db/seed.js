@@ -1,5 +1,33 @@
 var models = require('../models');
 
+var commentsData = [{
+  content: 'I am real love this game',
+  name: 'BILLY'
+}, {
+  content: 'Killed em in one hit',
+  name: 'DUNKEY'
+}, {
+  content: 'Easiest machine NA',
+  name: 'JOSIE'
+}];
+
+models.Comment.remove({}, function(err, res) {
+  if (err) {
+    console.log('Error removing comments: ', err);
+    return;
+  }
+  console.log('Removed all Comments');
+
+  models.Comment.create(commentsData, function(err, comments) {
+    if (err) {
+      console.log('Error creating comments: ', err);
+      return;
+    }
+    console.log('Created', comments.length, 'comments');
+    return;
+  })
+});
+
 
 models.Machine.remove({}, function(err, res) {
   if (err) {
@@ -9,23 +37,47 @@ models.Machine.remove({}, function(err, res) {
   console.log('Removed all Machines');
 
   models.Machine.create([{
-    title: 'Title', 
-    description: 'Content',
-    thumbnail_image_url: 'http://www.readersdigest.ca/wp-content/uploads/2011/01/4-ways-cheer-up-depressed-cat.jpg',
+    name: 'Attack From Mars',
+    image: 'https://billiardsnmore.com/wp-content/uploads/2018/03/afm0-2-300x300.jpg',
     year: 1995,
-    manufacturer: 'Stern'
+    manufacturer: 'Bally',
+    comments: [commentsData[0], commentsData[1], commentsData[2], commentsData[0]],
+    video: 'https://www.youtube.com/embed/xri-ffVoPqo'
   }, {
-    title: 'Another Title',
-    description: 'Some more content',
-    thumbnail_image_url: 'http://www.petmd.com/sites/default/files/sleepy-cat-125522297.jpg',
-    year: 1980,
-    manufacturer: 'Williams'
+    name: 'Medieval Madness',
+    image: 'https://images.pinside.com/6/94/694efb6710a64841ad07b4397a098b68d50c5c15/squared/bigthumb/694efb6710a64841ad07b4397a098b68d50c5c15.jpg',
+    year: 1997,
+    manufacturer: 'Williams',
+    comments: [commentsData[1]],
+    video: 'https://www.youtube.com/embed/6wb_x3q3z14'
   }, {
-    title: 'My Last Title',
-    description: 'Yo some dope content',
-    thumbnail_image_url: 'https://ichef.bbci.co.uk/news/1024/cpsprodpb/693C/production/_95804962_p0517py6.jpg',
-    year: 1977,
-    manufacturer: 'Bally'
+    name: 'Theatre of Magic',
+    image: 'https://lh6.ggpht.com/PUAWgirtPi9Thp2fsLUGCzdUNUHrcfmFyAtyNGZIb5sMLlzFf2eglX0MhjonUi4EmTQwSWQA19GJdf_JKRVah8oiywlr=s300-c',
+    year: 1995,
+    manufacturer: 'Bally',
+    comments: [commentsData[2]],
+    video: 'https://www.youtube.com/embed/PMYdwfq8mng'
+  }, {
+    name: 'The Twilight Zone',
+    image: 'https://billiardsnmore.com/wp-content/uploads/2017/08/tz0-300x300.jpg',
+    year: 1993,
+    manufacturer: 'Bally',
+    comments: [commentsData[0]],
+    video: 'https://www.youtube.com/embed/DYy0aNj9GLU'
+  }, {
+    name: 'Monster Bash',
+    image: 'https://images.pinside.com/0/f1/0f1a189a2f2caa5a1c8dc52040aa7731c73e469d/squared/bigthumb/0f1a189a2f2caa5a1c8dc52040aa7731c73e469d.jpg',
+    year: 1998,
+    manufacturer: 'Williams',
+    comments: [commentsData[1]],
+    video: 'https://www.youtube.com/embed/5mFFmopZ5Y8'
+  }, {
+    name: 'White Water',
+    image: 'http://lightedpinballmods.com/wp-content/uploads/2018/01/s-l1600-6-7-300x300.jpg',
+    year: 1993,
+    manufacturer: 'Williams',
+    comments: [commentsData[2]],
+    video: 'https://www.youtube.com/embed/9zVJLyIf-F8'
   }], function(err, machines) {
     if (err) {
       console.log('Error creating Machines', err);
@@ -35,3 +87,35 @@ models.Machine.remove({}, function(err, res) {
     return;
   });
 });
+
+models.Event.remove({}, function(err, res) {
+  if (err) {
+    console.log('Error removing Events', err);
+    return;
+  }
+  console.log('Removed all Events');
+
+  models.Event.create([{
+    name: `Big Sally's Happy Slappy Birthday Grindfest`,
+    type: 'Casual',
+    city: 'Newport, ME',
+    address: `Paul's Pinball Palace`,
+    description: `It's my birthday you bastards, come get drunk and suck at pinball for three hours`
+  }, {
+    name: `Super Important Tournament`,
+    type: 'Tournament',
+    city: 'Eau Claire, WI',
+    address: 'Eau Claire Games and Arcade',
+    description: `It's the annual SIT, come on down and be a tryhard`
+  }], function(err, events) {
+    if (err) {
+      console.log('Error creating events', err);
+      return;
+    }
+    console.log('Created', events.length, 'events');
+    return;
+  });
+});
+
+
+

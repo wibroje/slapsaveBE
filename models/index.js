@@ -6,4 +6,6 @@ if (process.env.NODE_ENV == "production") {
 }
 
 module.exports.Machine = require("./machine");
+module.exports.Comment = require("./comment");
+module.exports.Event = require("./event");
 
