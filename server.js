@@ -3,6 +3,9 @@ require('dotenv').config();
 var express = require('express');
 var app = express();
 var router = require('./config/routes.js');
+var cors = require('cors');
+
+app.use(cors());
 
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
